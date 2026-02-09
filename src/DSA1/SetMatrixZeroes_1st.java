@@ -1,7 +1,7 @@
 package DSA1;
 import java.util.Scanner;
 
-public class SetMatrixZeroes {
+public class SetMatrixZeroes_1st {
     public static void main() {
         Scanner sc= new Scanner(System.in);
         int n=sc.nextInt();
@@ -12,36 +12,28 @@ public class SetMatrixZeroes {
                 matrix[i][j]=sc.nextInt();
                 }
             }
-        int a=0;
-        int b=0;
+        boolean[] row=new boolean[n];
+        boolean[] col=new boolean[m];
         for (int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
                 if(matrix[i][j]==0){
-                    a=i;
-                    b=j;
+                    row[i]=true;
+                    col[j]=true;
                 }
             }
         }
+
        for (int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
-                if(i==a || j==b)
+                if(row[i] || col[j])
                     matrix[i][j]=0;
             }
         }
-        /*for (int i=0;i<matrix.length;i++){
-            matrix[i][b]=0;
-
-        }
-        for (int j=0;j<matrix[0].length;j++){
-            matrix[a][j]=0;
-
-        }*/
 
         for (int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
                 System.out.print(matrix[i][j] );
                 }
             }
-
     }
 }

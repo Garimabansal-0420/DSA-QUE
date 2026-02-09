@@ -1,4 +1,4 @@
-package DSA1;
+package Recursion;
 
 public class Num_Print {
     public static void print(int n) {
