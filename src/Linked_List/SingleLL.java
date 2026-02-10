@@ -1,4 +1,4 @@
-package Linked_List;
+/*package Linked_List;
 import java.util.*;
 
 class Node{
@@ -32,5 +32,72 @@ public class SingleLL {
         }
         System.out.print("null");
 
+    }
+}
+
+*/
+
+package Linked_List;
+import java.util.*;
+
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+class linkedlist{
+    Node head;
+      void insert(int data) {
+        Node newnode=new Node(data);
+
+        if (head==null){
+            head=newnode;
+            return ;
+        }
+
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newnode;
+    }
+
+    void insertatstart(int data){
+    Node newnode2=new Node(data);
+    if(head==null){
+        head=newnode2;
+        return ;
+    }
+    newnode2.next=head;
+    head=newnode2;
+    return ;
+
+    }
+    void display(){
+        Node temp=head;
+
+        while(temp!=null){
+            System.out.print(temp.data + " -> ");
+            temp=temp.next;
+        }
+        System.out.print("null");
+    }
+
+
+}
+public class SingleLL {
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    linkedlist n1=new linkedlist();
+    int n=sc.nextInt();
+    for(int i=0;i<n;i++){
+        n1.insert(sc.nextInt());
+    }
+    n1.insertatstart(100);
+        n1.display();
     }
 }
