@@ -1,21 +1,30 @@
-/*package Recursion;
-import java.util.*;
+package Recursion;
 
+import java.util.ArrayList;
+import java.util.List;
 public class PrintAllPermutation {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int [] arr=new int[n];
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
-        System.out.println(permutation(arr));
+static void main() {
+int[] values = {1, 2, 3};
+List<List<Integer>> output = new ArrayList<>();
+boolean[] visited = new boolean[values.length];
 
-    }
-    public static int permutation(int[] arr) {
-        if (arr.length==0)
-            return 0;
-
-    }
+generate(values, new ArrayList<>(), visited, output);
+System.out.println(output);
 }
-*/
+
+static void generate(int[] values, List<Integer> path, boolean[] visited, List<List<Integer>> output) {
+if (path.size() == values.length) {
+output.add(new ArrayList<>(path));
+return;
+}
+
+for (int i = 0; i < values.length; i++) {
+if (visited[i]) continue;
+visited[i] = true;
+path.add(values[i]);
+generate(values, path, visited, output);
+path.remove(path.size() - 1);
+visited[i] = false;
+}
+}
+}
