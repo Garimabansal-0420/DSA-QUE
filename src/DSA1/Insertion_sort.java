@@ -19,7 +19,7 @@ public class Insertion_sort {
             arr[j+1]=temp;
         }
         System.out.println("after insertion sort");
-        for(int i=0;i<arr.length;i++){
+        for(int i=0;i<arr.length;i++) {
             System.out.print(arr[i] + " ");
         }
     }
